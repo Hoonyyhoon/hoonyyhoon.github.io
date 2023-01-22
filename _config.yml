@@ -95,8 +95,8 @@ analytics:
 # Site Author
 author:
   name             : "Junghoon Kim"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "A Boundary Adventurer."
+  avatar           : "assets/logo.ico/apple-touch-icon.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "A Boundary Adventurer"
   location         : "Seoul"
   email            : "placidus36@gmail.com"
   links:
