@@ -34,7 +34,7 @@ Linux에 서비스로 등록하여 동작 중인 서버가 어떤 이유로 동�
 ### 1. Authentication Token 생성(Slack에 bots 추가 (또는) Slack app 추가)
 [slacktee의 configuration](https://github.com/coursehero/slacktee#configuration)에 따르면 두 가지 방법으로 notification을 채널에 띄울 수 있는 authentication token을 생성할 수 있다.
 
-Slack에서는 slack app 생성을 통한 token 생성을 권장하나, 여기서는 편의를 위해 slack Bot을 사용해 token을 생성하였다. 간단히, [link](https://slack.com/apps/A0F7YS25R-bots)에서 install을 수행하면 된다.
+Slack에서는 slack app 생성을 통한 token 생성을 권장하나, 여기서는 편의를 위해 slack Bot을 사용해 token을 생성하였다. 간단히, [link](https://slack.com/apps/A0F7YS25R-bots)에서 install(Add to slack)을 수행하면 된다.
 
 (**[참고]** slack bot 페이지의 설명과 같이 해당 방식은 legacy이므로, 향 후 deprecated 가능성이 있다. 따라서, 더 안정적인 환경을 선호한다면 slack app을 추가하여 token 생성을 권장한다. 이는 [slacktee의 configuration](https://github.com/coursehero/slacktee#configuration)을 따라가면 된다.)
 
@@ -60,7 +60,7 @@ attachment=""       # Default color of the attachments. If an empty string is sp
 
 아래 명령어로 간단하게 테스트가 가능하다.
 ```
-echo 'testing' | /usr/local/bin/slacktee
+echo 'testing' | /usr/local/bin/slacktee.sh
 ```
 
 ### 3. Service에 slacktee 항목 추가
@@ -77,6 +77,8 @@ ExecStopPost=/bin/sh -c "{ echo 'My server stopped, last lines from logs:'; jour
 <a href="https://ibb.co/DVPt5Y1"><img src="https://i.ibb.co/YR43pXN/Screen-Shot-2022-06-19-at-12-47-21-AM.png" alt="Screen-Shot-2022-06-19-at-12-47-21-AM" border="0" width="1000"></a>
 </p>
 <p style="text-align: center; bold"> <em>결과 예시</em> </p>
+
+service에 설정된 유저에 따라서, config를 불러오지 못하는 경우가 있는데, 이 경우 `~/.slacktee` 파일을 `/etc/slacktee.conf`로 복사해주면 불러오게된다(`.slacktee` 파일을 찾지 못하는 경우 default로 `/etc/slacktee.conf` 파일을 config로 사용한다)
 
 ## Reference
  1. <https://www.scaledrone.com/blog/real-time-notifications-from-systemd-to-slack/>
